@@ -32,6 +32,20 @@ void insertatLast(Node* &tail,int data){
     tail -> next = temp;
     temp = tail;
 }
+//inserting value with position
+void insertAtmiddle(Node* &head,int position,int data){
+    Node* temp = head;
+    int count = 1;
+    while(count < position-1){
+        temp = temp->next;
+        count++;
+        
+    }
+    //creating a node to be inserted
+    Node* tobeinserted = new Node(data);
+    tobeinserted -> next = temp->next;
+    temp->next = tobeinserted;
+}
 int main(){
     Node* node1 = new Node(8);
     //cout << node1->data << endl;
@@ -46,6 +60,9 @@ int main(){
     print(head);
     cout << "insertion at tail"<<endl;
     insertatLast(tail,55);
+    print(head);
+    cout << "insertion at any position with index"<<endl;
+    insertAtmiddle(head,2,45);
     print(head);
     return 0;
 }
