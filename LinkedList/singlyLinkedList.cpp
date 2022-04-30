@@ -32,6 +32,7 @@ void insertatLast(Node* &tail,int data){
     tail -> next = temp;
     temp = tail;
 }
+//
 //inserting value with position
 void insertAtmiddle(Node* &head,int position,int data){
     Node* temp = head;
