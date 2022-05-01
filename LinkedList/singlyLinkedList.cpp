@@ -61,6 +61,7 @@ int main(){
     print(head);
     cout << "insertion at tail"<<endl;
     insertatLast(tail,55);
+    //again printing
     print(head);
     cout << "insertion at any position with index"<<endl;
     insertAtmiddle(head,2,45);
