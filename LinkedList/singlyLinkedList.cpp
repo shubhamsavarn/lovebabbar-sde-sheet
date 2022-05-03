@@ -8,6 +8,14 @@ class Node{
         this->data = data;
         next = NULL;
     }
+    ~Node(){
+        int value = this->data;
+        if(this->data != NULL){
+            delete next;
+            this->next = NULL;
+        }
+        cout << "memory is free for node with data " <<value<<endl;
+    }
     
 };
 void insertAtfirst(Node* &head,int data){
@@ -47,6 +55,27 @@ void insertAtmiddle(Node* &head,int position,int data){
     tobeinserted -> next = temp->next;
     temp->next = tobeinserted;
 }
+void deleteNode(int position,Node* head){
+    if(position == 1){
+        Node* temp = head;
+        head = head->next;
+        //memory free start Node
+        temp->next = NULL;
+        delete temp;
+    }else{
+        Node* curr = head;
+        Node* prev = NULL;
+        int cnt = 1;
+        while(cnt < position){
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
 int main(){
     Node* node1 = new Node(8);
     //cout << node1->data << endl;
@@ -65,6 +94,8 @@ int main(){
     print(head);
     cout << "insertion at any position with index"<<endl;
     insertAtmiddle(head,2,45);
+    print(head);
+    deleteNode(2,head);
     print(head);
     return 0;
 }
