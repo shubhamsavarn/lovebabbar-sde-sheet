@@ -35,16 +35,25 @@ void insertAtstart(Node* &head,int d){
     head = temp;
     
 }
+void insertAttail(Node* &tail,int d){
+    Node* temp = new Node(d);
+    tail->next = temp;
+    temp->prev = tail;
+    tail = temp;
+}
 int main(){
     Node* node1 = new Node(10);
-    Node* node2 = new Node(20);
+    //Node* node2 = new Node(20);
     Node* head = node1;
-    head->next = node2;
+    Node* tail = node1;
+    //head->next = node2;
     //print(head);
     //cout << length(head)<<endl;
     //cout << "Adding node at first position"<<endl;
     insertAtstart(head,2);
+    insertAtstart(head,14);
+    insertAttail(tail,55);
+    insertAttail(tail,100);
     print(head);
     return 0;
-    
 }
