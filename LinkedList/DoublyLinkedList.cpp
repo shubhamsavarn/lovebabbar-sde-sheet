@@ -41,6 +41,27 @@ void insertAttail(Node* &tail,int d){
     temp->prev = tail;
     tail = temp;
 }
+void insertAtMiddle(Node* tail,Node* head,int position,int d){
+    //insertion at starting
+    if(position == 1){
+        insertAtstart(head,d);
+    }
+    int cnt =0;
+    Node* temp = head;
+    while(cnt < position-1){
+        temp = temp->next;
+        cnt++;
+    }
+    Node* tobeinserted = new Node(d);
+    tobeinserted->next = temp->next;
+    temp->next = tobeinserted;
+    //insertion at end
+    while(temp->next == NULL){
+        insertAttail(tail,d);
+        return;
+    }
+    
+}
 int main(){
     Node* node1 = new Node(10);
     //Node* node2 = new Node(20);
@@ -54,6 +75,7 @@ int main(){
     insertAtstart(head,14);
     insertAttail(tail,55);
     insertAttail(tail,100);
+    insertAtMiddle(tail,head,5,1000);
     print(head);
     return 0;
 }
