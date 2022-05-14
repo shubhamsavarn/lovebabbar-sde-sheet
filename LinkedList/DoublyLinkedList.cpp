@@ -10,6 +10,14 @@ class Node{
         this->prev = NULL;
         this->next = NULL;
     }
+    ~Node(){
+        int val = this->data;
+        if(next != NULL){
+            delete next;
+            next = NULL;
+        }
+        cout << "sirf bta rhe hai ki node delte ho gya hai"<<endl;
+    }
 };
 void print(Node* head){
     Node* temp = head;
@@ -62,6 +70,30 @@ void insertAtMiddle(Node* tail,Node* head,int position,int d){
     }
     
 }
+void deletenode(Node* &head,int position){
+    Node* temp = head;
+    if(position == 1){
+        temp->next->prev = NULL;
+        head = temp->next;
+        temp->next = NULL;
+        delete temp;//khud ka constructor call kr ke node delete kr rhe hai
+    }
+    else{
+        //koi v node delete kr rhe hai middle ya last
+        Node* curr = head;
+        Node* prev = NULL;
+        int cnt = 1;
+        while (position > cnt){
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        curr->prev = NULL;
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
 int main(){
     Node* node1 = new Node(10);
     //Node* node2 = new Node(20);
@@ -76,6 +108,8 @@ int main(){
     insertAttail(tail,55);
     insertAttail(tail,100);
     insertAtMiddle(tail,head,5,1000);
+    print(head);
+    deletenode(head,4);
     print(head);
     return 0;
 }
