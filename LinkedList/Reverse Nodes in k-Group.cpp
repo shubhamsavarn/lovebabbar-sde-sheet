@@ -7,6 +7,7 @@ class Node{
     Node(int d){
         this->data = d;
         next = NULL;
+        //
     }
     
 };
