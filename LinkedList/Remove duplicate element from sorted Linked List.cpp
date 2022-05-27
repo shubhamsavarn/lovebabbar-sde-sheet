@@ -12,6 +12,7 @@ Node *removeDuplicates(Node *head)
             curr->next = next_next;
         }else{
             curr = curr->next;
+            //
         }
     }
     return head;
