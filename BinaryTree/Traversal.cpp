@@ -26,6 +26,7 @@ Node* buildTree(Node* root){
     return root;
     
 }
+i
 int main(){
     Node* root = NULL;
     root = buildTree(root);
