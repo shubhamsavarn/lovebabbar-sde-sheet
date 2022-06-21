@@ -1,5 +1,4 @@
 void sortedInsert(stack<int> &stack, int num) {
-    //base case
     if(stack.empty() || (!stack.empty() && stack.top() < num) ) {
         stack.push(num);
         return;
