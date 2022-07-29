@@ -19,10 +19,10 @@ void printLevel(Node* root){
         Node* temp = q.front();
         q.pop();
         cout << temp->data <<endl;
-        if(temp->left){
+        if(temp->left != NULL){
             q.push(temp->left);
         }
-        if(temp->right -> right){
+        if(temp->righ != NULL){
             q.push(temp->right);
         }
     }
