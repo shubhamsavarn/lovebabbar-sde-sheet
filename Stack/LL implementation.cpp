@@ -24,6 +24,26 @@ struct Stack{
     int peek(){
         return head->data;
     }
+    int pop(){
+        if(head == NULL){
+            cout << "it's already empty"<<endl;
+        }
+        int res = head->data;
+        Node* temp = head;
+        head = head->next;
+        delete(temp);
+        size--;
+        return res;
+    }
+    bool empty(){
+        if(head == NULL){
+            return true;;
+        }else{
+            return false;
+        }
+        
+        
+    }
 
 };
 int main(){
@@ -31,6 +51,10 @@ int main(){
     s.push(2);
     s.push(5);
     s.push(6);
-    cout << s.peek();
+    s.push(77);
+    while(s.empty() != 1){
+        cout << s.peek()<<endl;
+        s.pop();
+    }
     return 0;
 }
