@@ -14,15 +14,20 @@ void print(Node* head){
     }
     print(head->next);
 }
-Node* insertionAtMiddle(Node* prev_node ,int d){
+Node* insertionAtMiddle(Node* prev_node ,Node* head,int d){
     Node* temp = new Node(d);
-    temp->next = prev_node;
-    prev_node = 
+    temp->next = prev_node->next;
+    prev_node->next = temp;
+    return head;
 }
 int main(){
     Node* head = new Node(1);
-    //first->next = second;
-    head = pushNode(head,7);
+    Node* first = new Node(2);
+    Node* second = new Node(3);
+    head->next = first;
+    first->next = second;
+    
+    head = insertionAtMiddle(first,head,5);
     print(head);
     return 0;
 }
